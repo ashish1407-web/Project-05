@@ -51,7 +51,6 @@ const createOrder = async function(req,res) {
         if(!cartSearch) {
             return res.status(404).send({status: false, message: "User cart not found"})
         }
-        console.log(cartSearch.userId, "this")
         if(cartSearch.userId != req.userId) {
             return res.status(400).send({status:false, message: "Unauthorised access u need to enter your userId"})
         }

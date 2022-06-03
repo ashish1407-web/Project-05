@@ -51,9 +51,9 @@ let createUser = async (req,res) =>{
         /* if(data.password.trim().length<8 || data.password.trim().length>15) {return res.status(400).send({ status: false, message: 'Password should be of minimum 8 characters & maximum 15 characters' })}
  */
 
-        if (!validator.validPassword(data.password)) {
+/*        if (!validator.validPassword(data.password)) {
           return res.status(400).send({ status: false, message:  'Password should be of minimum 8 characters & maximum 15 characters' })
-      }
+      }*/
         // using bcrypt
         const rounds = 10;
          let hash = await bcrypt.hash(data.password, rounds);

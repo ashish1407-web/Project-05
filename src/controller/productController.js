@@ -11,7 +11,7 @@ const createProduct = async function (req, res) {
         
         // checking data comes from user body
         if(Object.keys(data).length ==0){return res.status(400).send({status:false, message: "please input some data"})}
-          const { title, description, price, currencyId, currencyFormat, availableSizes, installments} = data
+          const { title, description, price, currencyId, availableSizes, installments} = data
         
         // checking for title
         if(!(validator.isValid(title))){
@@ -42,18 +42,18 @@ const createProduct = async function (req, res) {
             return res.status(400).send({status:false, message: "currencyId required"})
           }
 
-        if(!(validator.isValid(currencyFormat))) {
+        /*if(!(validator.isValid(currencyFormat))) {
           return res.status(400).send({status:false, message: "currency format required"})
-         }
+         }*/
         
 
         if(currencyId != "INR"){ 
             return res.status(400).send({status:false, message: "only indian currencyId INR accepted"})
          }
 
-        if(currencyFormat != "₹"){
+        /*if(currencyFormat != "₹"){
             return res.status(400).send({status:false, message: "only indian currency ₹ accepted "})
-         }
+         }*/
         
          
         if( files && files.length > 0){
